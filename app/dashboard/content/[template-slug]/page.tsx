@@ -36,7 +36,7 @@ function CreateNewConten(params:PROPS) {
     setloading(false)
  }
  const SaveDb=async(formData:any,slug:any)=>{
-  const result=await db.insert(AIOutPutSchema).values({formData:formData, templateSlug:slug, aiResponse:aiOutPut,createdBy:user?.user?.primaryEmailAddress?.emailAddress,createdAt:moment().format("DD/MM/YYYY")})
+  // const result=await db.insert(AIOutPutSchema).values({formData:formData, templateSlug:slug, aiResponse:aiOutPut,createdBy:user?.user?.primaryEmailAddress?.emailAddress,createdAt:moment().format("DD/MM/YYYY")})
  }
  console.log(aiOutPut , "data")
   return (
