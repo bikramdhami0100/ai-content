@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation'
 import React from 'react'
 import UsageTrack from './UsageTrack'
 
-function SideNavigation() {
+function BottomNavigation() {
    const sidepath = usePathname()
    const MenuList = [
       {
@@ -31,11 +31,9 @@ function SideNavigation() {
       }
    ]
    return (
-      <div className=' h-screen p-5 shadow-sm border relative'>
-         <div>
-            <Image alt='logo' src={"/logo.svg"} height={60} width={100} ></Image>
-         </div>
-         <div className="  border-t-2">
+      <div className='  md:hidden lg:hidden p-5 shadow-sm border relative'>
+         
+         <div className=" bg-slate-200 rounded-md flex fixed bottom-0  justify-around items-center  w-full  border-t-2">
             {
                MenuList.map((item, index) => {
                   return (
@@ -49,11 +47,9 @@ function SideNavigation() {
                })
             }
          </div>
-         <div className=' absolute w-full bottom-10 left-0 ' >
-           <UsageTrack/>
-         </div>
+       
       </div>
    )
 }
 
-export default SideNavigation
+export default BottomNavigation

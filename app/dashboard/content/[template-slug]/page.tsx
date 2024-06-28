@@ -5,14 +5,20 @@ import OutputSection from '../components/OutputSection'
 import { Templates } from '@/app/(data)/Templates'
 import { TEMPLATE } from '../../_components/TemplateListSection'
 import { Button } from '@/components/ui/button'
-import { ArrowLeft } from 'lucide-react'
+import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { chatSession } from '@/utils/AIModels'
 import Link from 'next/link'
 import { db } from '@/utils/Dbcon'
 import { AIOutPutSchema } from '@/utils/schema'
 import { useUser } from '@clerk/nextjs'
 import moment from 'moment'
-
+// import { RocketIcon } from "@radix-ui/react-icons"
+ 
+import {
+  Alert,
+  AlertDescription,
+  AlertTitle,
+} from "@/components/ui/alert"
 export interface PROPS {
   params: {
     "template-slug": string,
@@ -21,7 +27,8 @@ export interface PROPS {
 
 function CreateNewContent({ params }: PROPS) {
   const [loading, setLoading] = useState(false)
-  const [aiOutPut, setAiOutPut] = useState("")
+  const [aiOutPut, setAiOutPut] = useState("");
+  const [copyTextAlert,setCopyTextAlert]=useState(false)
   const { user } = useUser()
 
   const filterData: any = Templates?.find((item) => {
@@ -34,6 +41,8 @@ function CreateNewContent({ params }: PROPS) {
     const FinalAIPrompt = JSON.stringify(value) + "," + SelectedPrompt
     const result = await chatSession.sendMessage(FinalAIPrompt)
     const responseText = await result.response.text()
+  const copyResponseText=  navigator.clipboard.writeText(responseText)
+
     setAiOutPut(responseText)
     await SaveDb(JSON.stringify(value), filterData?.slug, responseText)
     setLoading(false)
@@ -63,10 +72,24 @@ function CreateNewContent({ params }: PROPS) {
       console.error("Error inserting data into the database:", error)
     }
   }
-  
+setTimeout(() => {
+   setCopyTextAlert(false)
+}, 1500);
 
   return (
+    <div>
+      {
+        copyTextAlert&&   <Alert>
+        {/* <RocketIcon className="h-4 w-4" /> */}
+        
+        <AlertTitle>🚀</AlertTitle>
+        <AlertDescription>
+          Copy to Clipboard successfully !
+        </AlertDescription>
+      </Alert>
+      }
     <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-5 p-5'>
+
       {/* form section */}
       <div>
         <Link href="/dashboard" className='bg-primary flex w-[100px] rounded-md text-white p-2'>
@@ -80,8 +103,9 @@ function CreateNewContent({ params }: PROPS) {
       </div>
       {/* Output section */}
       <div className='col-span-2'>
-        <OutputSection aiOutPut={aiOutPut} />
+        <OutputSection aiOutPut={aiOutPut} setCopyTextAlert={setCopyTextAlert} />
       </div>
+    </div>
     </div>
   )
 }

@@ -5,20 +5,28 @@ import '@toast-ui/editor/dist/toastui-editor.css';
 import { Editor } from '@toast-ui/react-editor';
 import { Copy } from 'lucide-react';
 interface Props{
-  aiOutPut:any
+  aiOutPut:any,
+  setCopyTextAlert:any
 }
-function OutputSection({aiOutPut}:Props) {
+function OutputSection({aiOutPut,setCopyTextAlert}:Props) {
+
   const editorRef=useRef<any>()
   console.log("first",aiOutPut)
   useEffect(()=>{
    const editorInstance=editorRef.current.getInstance();
    editorInstance.setMarkdown(aiOutPut)
   },[aiOutPut])
+  const HandleCopyText=()=>{
+    navigator.clipboard.writeText(aiOutPut || editorRef.current.getInstance().getMarkdown())
+    setCopyTextAlert(true)
+  }
   return (
     <div>
       <div className=' flex justify-between items-center border p-3'>
           <h1 className=' text-xl font-bold'>Your Result</h1>
-          <div className='flex gap-2 bg-primary text-white  p-3 rounded-md'>
+          <div onClick={()=>{
+       HandleCopyText()
+          }} className='flex gap-2 cursor-pointer bg-primary text-white  p-3 rounded-md'>
              <Copy/> Copy
           </div>
       </div>

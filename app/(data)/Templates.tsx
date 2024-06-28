@@ -22,6 +22,132 @@ export const Templates = [
         ]
     },
     {
+        name: "Code Snippet Generator",
+        desc: "An AI tool that generates code snippets based on your requirements.",
+        category: "Developer",
+        icon: "https://cdn-icons-png.flaticon.com/128/2103/2103808.png",
+        aiPrompt: "Provide a code snippet for the given requirements. Provide the result in rich text editor format.",
+        slug: "generate-code-snippet",
+        form: [
+            {
+                label: "Enter your programming language",
+                field: "input",
+                name: "language",
+                required: true
+            },
+            {
+                label: "Enter your code requirements",
+                field: "textarea",
+                name: "requirements",
+                required: true
+            }
+        ]
+    },
+    {
+        name: "Bug Fix Suggestion",
+        desc: "An AI tool that suggests fixes for bugs in your code.",
+        category: "Developer",
+        icon: "https://cdn-icons-png.flaticon.com/128/1827/1827543.png",
+        aiPrompt: "Suggest fixes for the given bug in the code. Provide the result in rich text editor format.",
+        slug: "bug-fix-suggestion",
+        form: [
+            {
+                label: "Enter your programming language",
+                field: "input",
+                name: "language",
+                required: true
+            },
+            {
+                label: "Enter your code with the bug",
+                field: "textarea",
+                name: "buggyCode",
+                required: true
+            }
+        ]
+    },
+    {
+        name: "Code Review Assistant",
+        desc: "An AI tool that provides code review comments for your code.",
+        category: "Developer",
+        icon: "https://cdn-icons-png.flaticon.com/128/2921/2921222.png",
+        aiPrompt: "Provide code review comments for the given code. Provide the result in rich text editor format.",
+        slug: "code-review-assistant",
+        form: [
+            {
+                label: "Enter your programming language",
+                field: "input",
+                name: "language",
+                required: true
+            },
+            {
+                label: "Enter your code for review",
+                field: "textarea",
+                name: "code",
+                required: true
+            }
+        ]
+    },
+    {
+        name: "Algorithm Explanation",
+        desc: "An AI tool that explains algorithms in simple terms.",
+        category: "Developer",
+        icon: "https://cdn-icons-png.flaticon.com/128/679/679720.png",
+        aiPrompt: "Explain the given algorithm in simple terms. Provide the result in rich text editor format.",
+        slug: "algorithm-explanation",
+        form: [
+            {
+                label: "Enter the name of the algorithm",
+                field: "input",
+                name: "algorithmName",
+                required: true
+            },
+            {
+                label: "Enter the algorithm details",
+                field: "textarea",
+                name: "algorithmDetails",
+                required: true
+            }
+        ]
+    },
+    {
+        name: "Regex Pattern Generator",
+        desc: "An AI tool that generates regex patterns based on your requirements.",
+        category: "Developer",
+        icon: "https://cdn-icons-png.flaticon.com/128/2565/2565673.png",
+        aiPrompt: "Generate a regex pattern based on the given requirements. Provide the result in rich text editor format.",
+        slug: "generate-regex-pattern",
+        form: [
+            {
+                label: "Enter your regex requirements",
+                field: "textarea",
+                name: "regexRequirements",
+                required: true
+            }
+        ]
+    },
+    {
+        name: "Unit Test Generator",
+        desc: "An AI tool that generates unit tests for your code.",
+        category: "Developer",
+        icon: "https://cdn-icons-png.flaticon.com/128/2553/2553661.png",
+        aiPrompt: "Generate unit tests for the given code. Provide the result in rich text editor format.",
+        slug: "generate-unit-tests",
+        form: [
+            {
+                label: "Enter your programming language",
+                field: "input",
+                name: "language",
+                required: true
+            },
+            {
+                label: "Enter your code for generating tests",
+                field: "textarea",
+                name: "code",
+                required: true
+            }
+        ]
+    },
+    {
         name: "Blog Content",
         desc: "An AI tool that generates blog content based on your blog outline",
         category: "Blog",
@@ -263,4 +389,480 @@ export const Templates = [
             }
         ]
     },
+    {
+        name: "Database Schema Designer",
+        desc: "An AI tool that helps you design database schemas based on your requirements.",
+        category: "Developer",
+        icon: "https://cdn-icons-png.flaticon.com/128/2904/2904079.png",
+        aiPrompt: "Generate a database schema based on the given requirements. Provide the result in rich text editor format.",
+        slug: "database-schema-designer",
+        form: [
+            {
+                label: "Enter your database type (e.g., MySQL, PostgreSQL)",
+                field: "input",
+                name: "databaseType",
+                required: true
+            },
+            {
+                label: "Enter your requirements for the schema",
+                field: "textarea",
+                name: "schemaRequirements",
+                required: true
+            }
+        ]
+    },
+    {
+        name: "API Endpoint Generator",
+        desc: "An AI tool that generates API endpoints based on your requirements.",
+        category: "Developer",
+        icon: "https://cdn-icons-png.flaticon.com/128/2878/2878585.png",
+        aiPrompt: "Generate API endpoints based on the given requirements. Provide the result in rich text editor format.",
+        slug: "generate-api-endpoints",
+        form: [
+            {
+                label: "Enter your API type (e.g., REST, GraphQL)",
+                field: "input",
+                name: "apiType",
+                required: true
+            },
+            {
+                label: "Enter your API requirements",
+                field: "textarea",
+                name: "apiRequirements",
+                required: true
+            }
+        ]
+    },
+    {
+        name: "Documentation Generator",
+        desc: "An AI tool that generates documentation for your code.",
+        category: "Developer",
+        icon: "https://cdn-icons-png.flaticon.com/128/3063/3063823.png",
+        aiPrompt: "Generate documentation for the given code. Provide the result in rich text editor format.",
+        slug: "generate-documentation",
+        form: [
+            {
+                label: "Enter your programming language",
+                field: "input",
+                name: "language",
+                required: true
+            },
+            {
+                label: "Enter your code for documentation",
+                field: "textarea",
+                name: "code",
+                required: true
+            }
+        ]
+    },
+    {
+        name: "Performance Optimization Tips",
+        desc: "An AI tool that provides performance optimization tips for your code.",
+        category: "Developer",
+        icon: "https://cdn-icons-png.flaticon.com/128/4436/4436481.png",
+        aiPrompt: "Provide performance optimization tips for the given code. Provide the result in rich text editor format.",
+        slug: "performance-optimization-tips",
+        form: [
+            {
+                label: "Enter your programming language",
+                field: "input",
+                name: "language",
+                required: true
+            },
+            {
+                label: "Enter your code for optimization",
+                field: "textarea",
+                name: "code",
+                required: true
+            }
+        ]
+    },
+    {
+        name: "Code Refactoring Suggestions",
+        desc: "An AI tool that suggests refactoring improvements for your code.",
+        category: "Developer",
+        icon: "https://cdn-icons-png.flaticon.com/128/3785/3785154.png",
+        aiPrompt: "Suggest refactoring improvements for the given code. Provide the result in rich text editor format.",
+        slug: "code-refactoring-suggestions",
+        form: [
+            {
+                label: "Enter your programming language",
+                field: "input",
+                name: "language",
+                required: true
+            },
+            {
+                label: "Enter your code for refactoring",
+                field: "textarea",
+                name: "code",
+                required: true
+            }
+        ]
+    },
+    {
+        name: "CSS Layout Generator",
+        desc: "An AI tool that generates CSS layouts based on your design requirements.",
+        category: "Developer",
+        icon: "https://cdn-icons-png.flaticon.com/128/1183/1183672.png",
+        aiPrompt: "Generate a CSS layout based on the given design requirements. Provide the result in rich text editor format.",
+        slug: "generate-css-layout",
+        form: [
+            {
+                label: "Enter your design requirements",
+                field: "textarea",
+                name: "designRequirements",
+                required: true
+            }
+        ]
+    },
+    {
+        name: "Fashion Outfit Generator",
+        desc: "An AI tool that suggests fashion outfits based on your preferences and occasions.",
+        category: "Lifestyle",
+        icon: "https://cdn-icons-png.flaticon.com/128/181/181534.png",
+        aiPrompt: "Suggest 5 fashion outfits based on the provided preferences and occasions. Provide the result in rich text editor format.",
+        slug: "generate-fashion-outfits",
+        form: [
+            {
+                label: "Enter your style preferences",
+                field: "textarea",
+                name: "preferences",
+                required: true
+            },
+            {
+                label: "Enter the occasion",
+                field: "input",
+                name: "occasion",
+                required: true
+            }
+        ]
+    },
+    {
+        name: "Makeup Tutorial Generator",
+        desc: "An AI tool that generates makeup tutorials based on your desired look.",
+        category: "Beauty",
+        icon: "https://cdn-icons-png.flaticon.com/128/892/892511.png",
+        aiPrompt: "Generate a step-by-step makeup tutorial for the given desired look. Provide the result in rich text editor format.",
+        slug: "generate-makeup-tutorial",
+        form: [
+            {
+                label: "Enter your desired makeup look",
+                field: "textarea",
+                name: "look",
+                required: true
+            }
+        ]
+    },
+    {
+        name: "Recipe Finder",
+        desc: "An AI tool that suggests recipes based on available ingredients.",
+        category: "Cooking",
+        icon: "https://cdn-icons-png.flaticon.com/128/1046/1046856.png",
+        aiPrompt: "Suggest 5 recipes based on the provided ingredients. Provide the result in rich text editor format.",
+        slug: "find-recipes",
+        form: [
+            {
+                label: "Enter available ingredients",
+                field: "textarea",
+                name: "ingredients",
+                required: true
+            }
+        ]
+    },
+    {
+        name: "Fitness Routine Planner",
+        desc: "An AI tool that generates fitness routines based on your goals.",
+        category: "Health",
+        icon: "https://cdn-icons-png.flaticon.com/128/3043/3043810.png",
+        aiPrompt: "Generate a fitness routine based on the provided goals. Provide the result in rich text editor format.",
+        slug: "plan-fitness-routine",
+        form: [
+            {
+                label: "Enter your fitness goals",
+                field: "textarea",
+                name: "goals",
+                required: true
+            }
+        ]
+    },
+    {
+        name: "Skincare Routine Advisor",
+        desc: "An AI tool that suggests skincare routines based on your skin type and issues.",
+        category: "Beauty",
+        icon: "https://cdn-icons-png.flaticon.com/128/924/924915.png",
+        aiPrompt: "Suggest a skincare routine based on the provided skin type and issues. Provide the result in rich text editor format.",
+        slug: "skincare-routine-advisor",
+        form: [
+            {
+                label: "Enter your skin type",
+                field: "input",
+                name: "skinType",
+                required: true
+            },
+            {
+                label: "Enter your skin issues",
+                field: "textarea",
+                name: "skinIssues",
+                required: true
+            }
+        ]
+    },
+    {
+        name: "Travel Itinerary Planner",
+        desc: "An AI tool that generates travel itineraries based on your destination and preferences.",
+        category: "Travel",
+        icon: "https://cdn-icons-png.flaticon.com/128/2991/2991106.png",
+        aiPrompt: "Generate a travel itinerary based on the provided destination and preferences. Provide the result in rich text editor format.",
+        slug: "plan-travel-itinerary",
+        form: [
+            {
+                label: "Enter your travel destination",
+                field: "input",
+                name: "destination",
+                required: true
+            },
+            {
+                label: "Enter your travel preferences",
+                field: "textarea",
+                name: "preferences",
+                required: true
+            }
+        ]
+    },
+    {
+        name: "Workout Plan Generator",
+        desc: "An AI tool that generates workout plans based on your fitness goals.",
+        category: "Fitness",
+        icon: "https://cdn-icons-png.flaticon.com/128/3068/3068320.png",
+        aiPrompt: "Generate a workout plan based on the provided fitness goals. Provide the result in rich text editor format.",
+        slug: "generate-workout-plan",
+        form: [
+            {
+                label: "Enter your fitness goals",
+                field: "textarea",
+                name: "goals",
+                required: true
+            }
+        ]
+    },
+    {
+        name: "Gadget Review Finder",
+        desc: "An AI tool that finds reviews for gadgets based on your interests.",
+        category: "Technology",
+        icon: "https://cdn-icons-png.flaticon.com/128/3649/3649372.png",
+        aiPrompt: "Find reviews for gadgets based on the provided interests. Provide the result in rich text editor format.",
+        slug: "find-gadget-reviews",
+        form: [
+            {
+                label: "Enter your gadget interests",
+                field: "textarea",
+                name: "interests",
+                required: true
+            }
+        ]
+    },
+    {
+        name: "Game Recommendation",
+        desc: "An AI tool that suggests video games based on your preferences.",
+        category: "Gaming",
+        icon: "https://cdn-icons-png.flaticon.com/128/890/890985.png",
+        aiPrompt: "Suggest 5 video games based on the provided preferences. Provide the result in rich text editor format.",
+        slug: "recommend-games",
+        form: [
+            {
+                label: "Enter your game preferences",
+                field: "textarea",
+                name: "preferences",
+                required: true
+            }
+        ]
+    },
+    {
+        name: "Tech News Aggregator",
+        desc: "An AI tool that gathers the latest tech news based on your interests.",
+        category: "Technology",
+        icon: "https://cdn-icons-png.flaticon.com/128/1036/1036306.png",
+        aiPrompt: "Gather the latest tech news based on the provided interests. Provide the result in rich text editor format.",
+        slug: "aggregate-tech-news",
+        form: [
+            {
+                label: "Enter your tech interests",
+                field: "textarea",
+                name: "interests",
+                required: true
+            }
+        ]
+    },
+    {
+        name: "DIY Project Ideas",
+        desc: "An AI tool that suggests DIY project ideas based on your skills and interests.",
+        category: "Hobbies",
+        icon: "https://cdn-icons-png.flaticon.com/128/3062/3062634.png",
+        aiPrompt: "Suggest 5 DIY project ideas based on the provided skills and interests. Provide the result in rich text editor format.",
+        slug: "suggest-diy-projects",
+        form: [
+            {
+                label: "Enter your skills",
+                field: "textarea",
+                name: "skills",
+                required: true
+            },
+            {
+                label: "Enter your project interests",
+                field: "textarea",
+                name: "interests",
+                required: true
+            }
+        ]
+    },
+    {
+        name: "Fantasy Sports Lineup",
+        desc: "An AI tool that generates fantasy sports lineups based on player stats.",
+        category: "Sports",
+        icon: "https://cdn-icons-png.flaticon.com/128/3062/3062634.png",
+        aiPrompt: "Generate a fantasy sports lineup based on the provided player stats. Provide the result in rich text editor format.",
+        slug: "generate-fantasy-lineup",
+        form: [
+            {
+                label: "Enter your sport",
+                field: "input",
+                name: "sport",
+                required: true
+            },
+            {
+                label: "Enter player stats",
+                field: "textarea",
+                name: "playerStats",
+                required: true
+            }
+        ]
+    },
+    {
+        name: "Vulnerability Scanner",
+        desc: "An AI tool that scans for vulnerabilities in your system or application.",
+        category: "Cybersecurity",
+        icon: "https://cdn-icons-png.flaticon.com/128/595/595067.png",
+        aiPrompt: "Scan the given system or application for vulnerabilities and provide a detailed report. Provide the result in rich text editor format.",
+        slug: "vulnerability-scanner",
+        form: [
+            {
+                label: "Enter system or application details",
+                field: "textarea",
+                name: "details",
+                required: true
+            }
+        ]
+    },
+    {
+        name: "Penetration Test Planner",
+        desc: "An AI tool that generates a penetration testing plan based on your requirements.",
+        category: "Cybersecurity",
+        icon: "https://cdn-icons-png.flaticon.com/128/1802/1802979.png",
+        aiPrompt: "Generate a detailed penetration testing plan based on the provided requirements. Provide the result in rich text editor format.",
+        slug: "penetration-test-planner",
+        form: [
+            {
+                label: "Enter your penetration testing requirements",
+                field: "textarea",
+                name: "requirements",
+                required: true
+            }
+        ]
+    },
+    {
+        name: "Incident Response Guide",
+        desc: "An AI tool that provides a step-by-step incident response guide based on the type of cyber attack.",
+        category: "Cybersecurity",
+        icon: "https://cdn-icons-png.flaticon.com/128/2933/2933249.png",
+        aiPrompt: "Provide a step-by-step incident response guide based on the given type of cyber attack. Provide the result in rich text editor format.",
+        slug: "incident-response-guide",
+        form: [
+            {
+                label: "Enter the type of cyber attack",
+                field: "input",
+                name: "attackType",
+                required: true
+            }
+        ]
+    },
+    {
+        name: "Threat Intelligence Aggregator",
+        desc: "An AI tool that aggregates the latest threat intelligence based on your interests.",
+        category: "Cybersecurity",
+        icon: "https://cdn-icons-png.flaticon.com/128/1280/1280250.png",
+        aiPrompt: "Aggregate the latest threat intelligence based on the provided interests. Provide the result in rich text editor format.",
+        slug: "threat-intelligence-aggregator",
+        form: [
+            {
+                label: "Enter your threat intelligence interests",
+                field: "textarea",
+                name: "interests",
+                required: true
+            }
+        ]
+    },
+    {
+        name: "Malware Analysis Report",
+        desc: "An AI tool that generates a malware analysis report based on the provided malware sample.",
+        category: "Cybersecurity",
+        icon: "https://cdn-icons-png.flaticon.com/128/1070/1070834.png",
+        aiPrompt: "Analyze the provided malware sample and generate a detailed report. Provide the result in rich text editor format.",
+        slug: "malware-analysis-report",
+        form: [
+            {
+                label: "Enter malware sample details",
+                field: "textarea",
+                name: "malwareSample",
+                required: true
+            }
+        ]
+    },
+    {
+        name: "Phishing Simulation",
+        desc: "An AI tool that creates phishing simulation exercises to test your organization's security awareness.",
+        category: "Cybersecurity",
+        icon: "https://cdn-icons-png.flaticon.com/128/1034/1034111.png",
+        aiPrompt: "Create a phishing simulation exercise based on the provided parameters. Provide the result in rich text editor format.",
+        slug: "phishing-simulation",
+        form: [
+            {
+                label: "Enter simulation parameters",
+                field: "textarea",
+                name: "parameters",
+                required: true
+            }
+        ]
+    },
+    {
+        name: "Security Policy Generator",
+        desc: "An AI tool that generates security policies based on your organization's requirements.",
+        category: "Cybersecurity",
+        icon: "https://cdn-icons-png.flaticon.com/128/2965/2965302.png",
+        aiPrompt: "Generate a detailed security policy based on the provided requirements. Provide the result in rich text editor format.",
+        slug: "security-policy-generator",
+        form: [
+            {
+                label: "Enter your organization's requirements",
+                field: "textarea",
+                name: "requirements",
+                required: true
+            }
+        ]
+    },
+    {
+        name: "Password Strength Analyzer",
+        desc: "An AI tool that analyzes the strength of passwords and provides recommendations.",
+        category: "Cybersecurity",
+        icon: "https://cdn-icons-png.flaticon.com/128/2140/2140698.png",
+        aiPrompt: "Analyze the given password for strength and provide recommendations for improvement. Provide the result in rich text editor format.",
+        slug: "password-strength-analyzer",
+        form: [
+            {
+                label: "Enter the password",
+                field: "input",
+                name: "password",
+                required: true
+            }
+        ]
+    }
 ]
