@@ -1,5 +1,212 @@
 export const Templates = [
     {
+    "name": "Documentation Summary Generator",
+    "desc": "An AI tool that generates summaries for your documentation based on the provided content",
+    "category": "Documentation",
+    "icon": "https://cdn-icons-png.flaticon.com/128/2913/2913570.png",
+    "aiPrompt": "Generate a concise summary in bullet points based on the provided documentation. Provide the result in rich text editor format.",
+    "slug": "generate-doc-summary",
+    "form": [
+        {
+            "label": "Enter your documentation content",
+            "field": "textarea",
+            "name": "content",
+            "required": true
+        }
+    ]
+},{
+    "name": "API Documentation Formatter",
+    "desc": "An AI tool that formats your API documentation for better readability",
+    "category": "Documentation",
+    "icon": "https://cdn-icons-png.flaticon.com/128/2620/2620750.png",
+    "aiPrompt": "Format the provided API documentation to improve readability and structure. Provide the result in rich text editor format.",
+    "slug": "format-api-doc",
+    "form": [
+        {
+            "label": "Enter your API documentation",
+            "field": "textarea",
+            "name": "apiDoc",
+            "required": true
+        }
+    ]
+},
+    {
+    "name": "User Guide Creator",
+    "desc": "An AI tool that generates user guides based on the provided application details",
+    "category": "Documentation",
+    "icon": "https://cdn-icons-png.flaticon.com/128/1038/1038605.png",
+    "aiPrompt": "Create a user guide with step-by-step instructions based on the provided application details. Provide the result in rich text editor format.",
+    "slug": "create-user-guide",
+    "form": [
+        {
+            "label": "Enter application details",
+            "field": "textarea",
+            "name": "appDetails",
+            "required": true
+        }
+    ]
+},
+    {
+    "name": "Technical Manual Generator",
+    "desc": "An AI tool that generates technical manuals based on the provided specifications",
+    "category": "Documentation",
+    "icon": "https://cdn-icons-png.flaticon.com/128/888/888857.png",
+    "aiPrompt": "Generate a technical manual based on the provided specifications. Provide the result in rich text editor format.",
+    "slug": "generate-tech-manual",
+    "form": [
+        {
+            "label": "Enter specifications",
+            "field": "textarea",
+            "name": "specifications",
+            "required": true
+        }
+    ]
+},
+    {
+    "name": "FAQ Generator",
+    "desc": "An AI tool that creates FAQs based on the provided documentation",
+    "category": "Documentation",
+    "icon": "https://cdn-icons-png.flaticon.com/128/1026/1026580.png",
+    "aiPrompt": "Generate a list of frequently asked questions based on the provided documentation. Provide the result in rich text editor format.",
+    "slug": "generate-faq",
+    "form": [
+        {
+            "label": "Enter your documentation content",
+            "field": "textarea",
+            "name": "content",
+            "required": true
+        }
+    ]
+},
+    {
+    "name": "Release Notes Creator",
+    "desc": "An AI tool that creates release notes based on the provided update details",
+    "category": "Documentation",
+    "icon": "https://cdn-icons-png.flaticon.com/128/3431/3431532.png",
+    "aiPrompt": "Generate detailed release notes based on the provided update details. Provide the result in rich text editor format.",
+    "slug": "create-release-notes",
+    "form": [
+        {
+            "label": "Enter update details",
+            "field": "textarea",
+            "name": "updateDetails",
+            "required": true
+        }
+    ]
+},
+    {
+    "name": "Documentation Style Checker",
+    "desc": "An AI tool that checks your documentation for style consistency and readability",
+    "category": "Documentation",
+    "icon": "https://cdn-icons-png.flaticon.com/128/902/902182.png",
+    "aiPrompt": "Check the provided documentation for style consistency and readability. Highlight any issues and provide suggestions for improvement. Provide the result in rich text editor format.",
+    "slug": "check-doc-style",
+    "form": [
+        {
+            "label": "Enter your documentation content",
+            "field": "textarea",
+            "name": "content",
+            "required": true
+        }
+    ]
+},
+    {
+    "name": "Glossary Generator",
+    "desc": "An AI tool that generates a glossary of terms based on your documentation",
+    "category": "Documentation",
+    "icon": "https://cdn-icons-png.flaticon.com/128/4304/4304540.png",
+    "aiPrompt": "Generate a glossary of terms based on the provided documentation. Provide the result in rich text editor format.",
+    "slug": "generate-glossary",
+    "form": [
+        {
+            "label": "Enter your documentation content",
+            "field": "textarea",
+            "name": "content",
+            "required": true
+        }
+    ]
+},
+    {
+    "name": "Document Comparison Tool",
+    "desc": "An AI tool that compares two versions of a document and highlights the differences",
+    "category": "Documentation",
+    "icon": "https://cdn-icons-png.flaticon.com/128/1828/1828774.png",
+    "aiPrompt": "Compare the two provided documents and highlight the differences. Provide the result in rich text editor format.",
+    "slug": "compare-docs",
+    "form": [
+        {
+            "label": "Enter the first document",
+            "field": "textarea",
+            "name": "document1",
+            "required": true
+        },
+        {
+            "label": "Enter the second document",
+            "field": "textarea",
+            "name": "document2",
+            "required": true
+        }
+    ]
+},
+    {
+    "name": "Content Structure Analyzer",
+    "desc": "An AI tool that analyzes the structure of your documentation and provides improvement suggestions",
+    "category": "Documentation",
+    "icon": "https://cdn-icons-png.flaticon.com/128/3291/3291672.png",
+    "aiPrompt": "Analyze the structure of the provided documentation and suggest improvements. Provide the result in rich text editor format.",
+    "slug": "analyze-doc-structure",
+    "form": [
+        {
+            "label": "Enter your documentation content",
+            "field": "textarea",
+            "name": "content",
+            "required": true
+        }
+    ]
+},
+    {
+    "name": "Documentation Translation Helper",
+    "desc": "An AI tool that assists in translating documentation into different languages",
+    "category": "Documentation",
+    "icon": "https://cdn-icons-png.flaticon.com/128/2351/2351203.png",
+    "aiPrompt": "Translate the provided documentation into the specified language. Provide the result in rich text editor format.",
+    "slug": "translate-doc",
+    "form": [
+        {
+            "label": "Enter your documentation content",
+            "field": "textarea",
+            "name": "content",
+            "required": true
+        },
+        {
+            "label": "Select target language",
+            "field": "dropdown",
+            "name": "language",
+            "options": ["Spanish", "French", "German", "Chinese", "Japanese", "Russian"],
+            "required": true
+        }
+    ]
+},
+    {
+    "name": "Documentation Template Generator",
+    "desc": "An AI tool that generates templates for various types of documentation",
+    "category": "Documentation",
+    "icon": "https://cdn-icons-png.flaticon.com/128/3135/3135715.png",
+    "aiPrompt": "Generate a template for the specified type of documentation. Provide the result in rich text editor format.",
+    "slug": "generate-doc-template",
+    "form": [
+        {
+            "label": "Select type of documentation",
+            "field": "dropdown",
+            "name": "docType",
+            "options": ["User Manual", "Technical Specification", "API Guide", "Quick Start Guide", "Release Notes"],
+            "required": true
+        }
+    ]
+},
+
+
+    {
         name: "Blog Title",
         desc: "An AI tool that generates blog titles based on your blog information",
         category: "Blog",
