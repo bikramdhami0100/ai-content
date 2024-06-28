@@ -8,6 +8,7 @@ import Header from "./_components/Header";
 import { TotalUsageContext } from "../(context)/TotalUsageContext";
 import { useState } from "react";
 import BottomNavigation from "./_components/BottomNavigation";
+import { HeaderSearchContext } from "../(context)/HeaderSearchContext";
 
 export default function Layout({
   children,
@@ -15,20 +16,29 @@ export default function Layout({
   children: React.ReactNode;
 }>) {
   const [totalUsage, setTotalUsage] = useState<any>(0)
+  const [searchData, setSearchData] = useState<any>()
   return (
-    <TotalUsageContext.Provider value={{ totalUsage, setTotalUsage }}>
+    <HeaderSearchContext.Provider value={{ searchData, setSearchData }}>
 
-      <div>
-        <div className=" md:w-64 fixed hidden md:block ">
-          <SideNavigation />
-        </div>
-        <div className="md:ml-64">
-          <Header />
-          {children}
-        </div>
-        <BottomNavigation/>
-      </div>
 
-    </TotalUsageContext.Provider>
+      <TotalUsageContext.Provider value={{ totalUsage, setTotalUsage }}>
+
+        <div>
+          <div className=" md:w-64 fixed hidden md:block ">
+            <SideNavigation />
+          </div>
+          <div className="md:ml-64">
+            <div className="  w-full">
+              <Header />
+            </div>
+            <div className=" mt-[100px]">
+              {children}
+            </div>
+          </div>
+          <BottomNavigation />
+        </div>
+
+      </TotalUsageContext.Provider>
+    </HeaderSearchContext.Provider>
   );
 }

@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import TemplateCard from './TemplateCard'
 import { Templates } from '@/app/(data)/Templates'
+import { HeaderSearchContext } from '@/app/(context)/HeaderSearchContext'
 
 export interface TEMPLATE{
     name:string,
@@ -18,19 +19,21 @@ export interface FORM{
     required:boolean
 }
 function TemplateListSection({userSearchInput}:any) {
+  const {searchData,setSearchData}=useContext<any>(HeaderSearchContext)
   const [templateList,setTemplateList]=useState(Templates)
   console.log(userSearchInput)
   useEffect(()=>{
-  if(userSearchInput){
+
+  if(userSearchInput || searchData){
     let filterData=templateList.filter((item,index:number)=>{
       // console.log(item.name)
-      return item.name.toLowerCase().includes(userSearchInput.toLowerCase())
+      return item.name.toLowerCase().includes(userSearchInput?.toLowerCase() || searchData?.toLowerCase())
     })
     setTemplateList(filterData)
   }else{
     setTemplateList(Templates)
   }
-  },[userSearchInput])
+  },[userSearchInput,searchData])
   return (
     <div className=' grid  grid-cols-2 md:grid-cols-3 lg:grid-cols-4 p-6'>
          {
