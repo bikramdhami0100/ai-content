@@ -77,13 +77,13 @@ setTimeout(() => {
 }, 1500);
 
   return (
-    <div>
+    <div className='z-0'>
       {
-        copyTextAlert&&   <Alert>
+        copyTextAlert&&   <Alert className=' bg-green-300 font-bold text-xl flex gap-2 p-6'>
         {/* <RocketIcon className="h-4 w-4" /> */}
         
         <AlertTitle>🚀</AlertTitle>
-        <AlertDescription>
+        <AlertDescription className=' text-lg'>
           Copy to Clipboard successfully !
         </AlertDescription>
       </Alert>
@@ -102,7 +102,7 @@ setTimeout(() => {
         />
       </div>
       {/* Output section */}
-      <div className='col-span-2'>
+      <div className='col-span-2 z-0 '>
         <OutputSection aiOutPut={aiOutPut} setCopyTextAlert={setCopyTextAlert} />
       </div>
     </div>
