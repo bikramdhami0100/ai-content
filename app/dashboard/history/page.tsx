@@ -14,6 +14,7 @@ import {
     TableRow,
 } from "@/components/ui/table"
 import { Copy, Delete } from 'lucide-react';
+import { eq } from 'drizzle-orm';
 export interface HISTORY {
     aiResponse: string,
     createdAt: string,
@@ -23,33 +24,54 @@ export interface HISTORY {
     templateSlug: string
 }
 function History() {
+
     const [history, setHistory] = useState<any>();
     const GetAllDataFromPostgres = async () => {
         const result = await db.select().from(AIOutPutSchema).execute();
         setHistory(result)
         console.log(result)
     }
-    const handleDeleteHistory = async (id: any) => {
-        // try {
-        //     const result = await db.delete().from(AIOutPutSchema).where(AIOutPutSchema.id.eq(id)).execute();
-        //     if (result.rowCount > 0) {
-        //       console.log(`Record with ID ${id} deleted successfully.`);
-        //     } else {
-        //       console.log(`No record found with ID ${id}.`);
-        //     }
-        //   } catch (error) {
-        //     console.error("Error deleting data from the database:", error);
-        //     throw new Error("Unable to delete data from the database.");
-        //   }
-
-    }
+    // const handleDeleteHistory = async (id: any) => {
+    //     try {
+    //         // @ts-ignore
+    //         const result = await db.delete().from(AIOutPutSchema)
+    //             .where(eq(AIOutPutSchema.id, id))
+    //         console.log(result)
+    //         // const result = await db
+    //         //     .delete(AIOutPutSchema)
+    //         //     .where(AIOutPutSchema.id.eq(id))
+    //         //     .execute();
+    //         // console.log(result);
+    //         // setHistory(history.filter((item:any )=> item.id !== id));
+    //     } catch (error) {
+    //         console.error("Error deleting data from the database:", error);
+    //         throw new Error("Unable to delete data from the database.");
+    //     }
+    // }
+    const handleDeleteHistory = async (id: number) => {
+        try {
+            const result = await db
+                .delete(AIOutPutSchema)
+                .where(eq(AIOutPutSchema.id, id))
+                .execute();
+            
+            console.log(result);
+    
+            // Update the local state to reflect the deletion
+            setHistory(history.filter((item: HISTORY) => item.id !== id));
+        } catch (error) {
+            console.error("Error deleting data from the database:", error);
+            throw new Error("Unable to delete data from the database.");
+        }
+    };
+    
     useEffect(() => {
         GetAllDataFromPostgres()
     }, [])
     return (
         <div>
             {
-               history ?( <Table>
+                history ? (<Table>
                     <TableCaption>A list of history</TableCaption>
                     <TableHeader>
                         <TableRow>
@@ -87,54 +109,54 @@ function History() {
           </TableRow> */}
                     </TableFooter>
                 </Table>)
-                    :  (
+                    : (
                         <Table>
-                          <TableCaption>A list of history</TableCaption>
-                          <TableHeader>
-                            <TableRow>
-                              <TableHead className="w-[100px]">Id</TableHead>
-                              <TableHead>createdBy</TableHead>
-                              <TableHead>aiResponse</TableHead>
-                              <TableHead>templateSlug</TableHead>
-                              <TableHead>createdAt</TableHead>
-                              <TableHead>copy</TableHead>
-                              <TableHead>Delete</TableHead>
-                              <TableHead className="text-right"></TableHead>
-                            </TableRow>
-                          </TableHeader>
-                          <TableBody>
-                            {Array(7).fill(0).map((_, index) => (
-                              <TableRow key={index} className="animate-pulse">
-                                <TableCell className="font-medium">
-                                  <div className="h-4 bg-gray-300 rounded"></div>
-                                </TableCell>
-                                <TableCell>
-                                  <div className="h-4 bg-gray-300 rounded"></div>
-                                </TableCell>
-                                <TableCell className="line-clamp-3">
-                                  <div className="h-4 bg-gray-300 rounded"></div>
-                                </TableCell>
-                                <TableCell>
-                                  <div className="h-4 bg-gray-300 rounded"></div>
-                                </TableCell>
-                                <TableCell>
-                                  <div className="h-4 bg-gray-300 rounded"></div>
-                                </TableCell>
-                                <TableCell>
-                                  <div className="h-4 bg-gray-300 rounded"></div>
-                                </TableCell>
-                                <TableCell>
-                                  <div className="h-4 bg-gray-300 rounded"></div>
-                                </TableCell>
-                                <TableCell className="text-right">
-                                  <div className="h-4 bg-gray-300 rounded"></div>
-                                </TableCell>
-                              </TableRow>
-                            ))}
-                          </TableBody>
-                          <TableFooter></TableFooter>
+                            <TableCaption>A list of history</TableCaption>
+                            <TableHeader>
+                                <TableRow>
+                                    <TableHead className="w-[100px]">Id</TableHead>
+                                    <TableHead>createdBy</TableHead>
+                                    <TableHead>aiResponse</TableHead>
+                                    <TableHead>templateSlug</TableHead>
+                                    <TableHead>createdAt</TableHead>
+                                    <TableHead>copy</TableHead>
+                                    <TableHead>Delete</TableHead>
+                                    <TableHead className="text-right"></TableHead>
+                                </TableRow>
+                            </TableHeader>
+                            <TableBody>
+                                {Array(7).fill(0).map((_, index) => (
+                                    <TableRow key={index} className="animate-pulse">
+                                        <TableCell className="font-medium">
+                                            <div className="h-4 bg-gray-300 rounded"></div>
+                                        </TableCell>
+                                        <TableCell>
+                                            <div className="h-4 bg-gray-300 rounded"></div>
+                                        </TableCell>
+                                        <TableCell className="line-clamp-3">
+                                            <div className="h-4 bg-gray-300 rounded"></div>
+                                        </TableCell>
+                                        <TableCell>
+                                            <div className="h-4 bg-gray-300 rounded"></div>
+                                        </TableCell>
+                                        <TableCell>
+                                            <div className="h-4 bg-gray-300 rounded"></div>
+                                        </TableCell>
+                                        <TableCell>
+                                            <div className="h-4 bg-gray-300 rounded"></div>
+                                        </TableCell>
+                                        <TableCell>
+                                            <div className="h-4 bg-gray-300 rounded"></div>
+                                        </TableCell>
+                                        <TableCell className="text-right">
+                                            <div className="h-4 bg-gray-300 rounded"></div>
+                                        </TableCell>
+                                    </TableRow>
+                                ))}
+                            </TableBody>
+                            <TableFooter></TableFooter>
                         </Table>
-                      )
+                    )
 
             }
         </div>
