@@ -48,16 +48,7 @@ function CreateNewContent({ params }: PROPS) {
     setLoading(false)
   }
 
-  // const SaveDb = async (formData: any, slug: any, aiOutPut: any) => {
-  // const result=  await db.insert(AIOutPutSchema).values({
-  //     formData: formData,
-  //     templateSlug: slug,
-  //     aiResponse: aiOutPut,
-  //     createdBy: user?.primaryEmailAddress?.emailAddress,
-  //     createdAt: moment().format("DD/MM/YYYY")
-  //   })
-  //   console.log(result)
-  // }
+
   const SaveDb = async (formData: any, slug: any, aiOutPut: any) => {
     try {
       const result = await db.insert(AIOutPutSchema).values({

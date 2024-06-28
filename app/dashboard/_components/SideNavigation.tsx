@@ -32,8 +32,10 @@ function SideNavigation() {
    ]
    return (
       <div className=' h-screen p-5 shadow-sm border relative'>
-         <div>
+         <div >
+            <Link href={"/"}>
             <Image alt='logo' src={"/logo.svg"} height={60} width={100} ></Image>
+            </Link>
          </div>
          <div className="  border-t-2">
             {

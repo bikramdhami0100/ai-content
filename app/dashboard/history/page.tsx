@@ -13,6 +13,11 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table"
+import {
+    Alert,
+    AlertDescription,
+    AlertTitle,
+  } from "@/components/ui/alert"
 import { Copy, Delete } from 'lucide-react';
 import { eq } from 'drizzle-orm';
 export interface HISTORY {
@@ -24,30 +29,17 @@ export interface HISTORY {
     templateSlug: string
 }
 function History() {
-
+    const [copyTextAlert,setCopyTextAlert]=useState(false)
     const [history, setHistory] = useState<any>();
     const GetAllDataFromPostgres = async () => {
         const result = await db.select().from(AIOutPutSchema).execute();
         setHistory(result)
         console.log(result)
     }
-    // const handleDeleteHistory = async (id: any) => {
-    //     try {
-    //         // @ts-ignore
-    //         const result = await db.delete().from(AIOutPutSchema)
-    //             .where(eq(AIOutPutSchema.id, id))
-    //         console.log(result)
-    //         // const result = await db
-    //         //     .delete(AIOutPutSchema)
-    //         //     .where(AIOutPutSchema.id.eq(id))
-    //         //     .execute();
-    //         // console.log(result);
-    //         // setHistory(history.filter((item:any )=> item.id !== id));
-    //     } catch (error) {
-    //         console.error("Error deleting data from the database:", error);
-    //         throw new Error("Unable to delete data from the database.");
-    //     }
-    // }
+const HandleClickToCopy=(text:any)=>{
+    navigator.clipboard.writeText(text)
+    setCopyTextAlert(true)
+}
     const handleDeleteHistory = async (id: number) => {
         try {
             const result = await db
@@ -68,8 +60,24 @@ function History() {
     useEffect(() => {
         GetAllDataFromPostgres()
     }, [])
+    setTimeout(() => {
+        setCopyTextAlert(false)
+     }, 1500);
+     
     return (
         <div>
+            <div>
+            {
+        copyTextAlert&&   <Alert className=' bg-green-300 font-bold text-xl flex gap-2 p-6'>
+        {/* <RocketIcon className="h-4 w-4" /> */}
+        
+        <AlertTitle>🚀</AlertTitle>
+        <AlertDescription className=' text-lg'>
+          Copy to Clipboard successfully !
+        </AlertDescription>
+      </Alert>
+      }
+            </div>
             {
                 history ? (<Table>
                     <TableCaption>A list of history</TableCaption>
@@ -90,11 +98,11 @@ function History() {
                             <TableRow key={index}>
                                 <TableCell className="font-medium">{item.id}</TableCell>
                                 <TableCell>{item.createdBy}</TableCell>
-                                <TableCell className=' line-clamp-3'>{item.aiResponse}</TableCell>
-                                <TableCell className="">{item.formData}</TableCell>
+                                <TableCell className=' line-clamp-3' >{item.aiResponse}</TableCell>
+                                <TableCell className=" text-ellipsis text-wrap  overflow-hidden  ">{item.formData}</TableCell>
                                 <TableCell>{item.createdAt}</TableCell>
                                 <TableCell onClick={() => {
-                                    navigator.clipboard.writeText(item.aiResponse)
+                                 HandleClickToCopy(item.aiResponse)
                                 }} className=' cursor-pointer'><Copy /> Copy</TableCell>
                                 <TableCell className=' cursor-pointer' onClick={() => {
                                     handleDeleteHistory(item.id)
