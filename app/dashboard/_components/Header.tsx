@@ -8,7 +8,7 @@ function Header() {
   const {searchData,setSearchData}=useContext<any>(HeaderSearchContext)
 
   return (
-    <div className=' backdrop-blur-3xl  fixed  w-full right-0 top-0 flex justify-between items-center p-5 shadow-md border-b-2'>
+    <div className=' bg-gradient-to-br from-violet-400 to-purple-500  backdrop-blur-3xl  fixed  w-full right-0 top-0 flex justify-between items-center p-5 shadow-md border-b-2'>
       <div className=' flex gap-2 items-center p-2'>
         <Search />
         <Input onChange={(e)=>{
