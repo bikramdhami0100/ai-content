@@ -28,7 +28,7 @@ export default function Layout({
             <SideNavigation />
           </div>
           <div className="md:ml-64">
-            <div className="  w-full">
+            <div className="">
               <Header />
             </div>
             <div className=" mt-[100px]">
