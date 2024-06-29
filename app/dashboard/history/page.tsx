@@ -34,7 +34,7 @@ function History() {
     const GetAllDataFromPostgres = async () => {
         const result = await db.select().from(AIOutPutSchema).execute();
         setHistory(result)
-        console.log(result)
+      
     }
 const HandleClickToCopy=(text:any)=>{
     navigator.clipboard.writeText(text)
